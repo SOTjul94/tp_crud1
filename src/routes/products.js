@@ -2,15 +2,15 @@
 const express = require('express');
 const router = express.Router();
 
-// ************ Controller Require ************
-const productsController = require('../controllers/productsController');
+// ************ Middlewares Require ************
+const {uploadImageProducts} = require('../middlewares/uploadFiles');
 
 /*** GET ALL PRODUCTS ***/ 
 router.get('/', productsController.index); 
 
 /*** CREATE ONE PRODUCT ***/ 
 router.get('/create', productsController.create); 
-router.post('/store', productsController.store); 
+router.post('/store',uploadImageProducts.sigle('image'), productsController.store); 
 
 
 /*** GET ONE PRODUCT ***/ 

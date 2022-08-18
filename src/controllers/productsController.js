@@ -45,7 +45,7 @@ const controller = {
 			description : description.trim(),
 			price : +price,
 			discount : +discount, 
-			image : "defaul-image.png",
+			image :  req.file ? req.file.filename: "defaul-image.png",
 			category
 		}
 
